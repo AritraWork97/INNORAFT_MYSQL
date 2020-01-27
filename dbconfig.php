@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "rita1234";
+$username = "";
+$password = "";
 $database = "MYSQLASSIGNMENT";
 
 // Create connection
