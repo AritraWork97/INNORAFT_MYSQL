@@ -5,9 +5,9 @@
 
 
 
-    $employee_code_name = $employee_code_domain = "";
+    $employee_code_name = $employee_code_domain = $employee_code="";
 
-    $employee_code_name_error = $employee_code_domain_error = "";
+    $employee_code_name_error = $employee_code_domain_error = $employee_code_err="";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["empname"])) {
@@ -20,12 +20,17 @@
          }else {
             $employee_code_domain = test_input($_POST["empdomain"]);
          }
+         if (empty($_POST["empcode"])) {
+            $employee_code_error = "Your Employee Code is required";
+         }else {
+            $employee_code = test_input($_POST["empcode"]);
+         }
     }
     if($employee_code_domain_error != null || $employee_code_name_error != null)
     {
         echo "Error in given data";
     } else {
-        $sql_insert_data = "INSERT INTO employee_code_table (employee_code, employee_code_name, employee_domain) VALUES(' ','$employee_code_name', '$employee_code_domain')";
+        $sql_insert_data = "INSERT INTO employee_code_table  VALUES('$employee_code','$employee_code_name', '$employee_code_domain')";
         if($conn->query($sql_insert_data) == TRUE)
         {
             echo '<script language="javascript">';

@@ -14,15 +14,20 @@ empname.onkeypress = function() {
     return ((event.charCode > 64 && event.charCode < 91) ||(event.charCode > 96 && event.charCode < 123));
  }
 
+ empmarks.onkeypress = function() {
+      return (event.charCode > 48 && event.charCode <= 57)
+ }
+
  form.onsubmit = function() {
   var empname_value = document.getElementById("empname").value;
   var empid_value = document.getElementById("empid").value;
   var emplastname_value = document.getElementById("emplastname").value;
   var empmarks_value = document.getElementById("graduation_percentile").value;
 
-  if(empname_value.length <=1 || empid_value.length <5 || emplastname_value.length <5
-      || (empmarks_value > 100 || empmarks_value < 0))
+  if(empname_value.length <=1 || empid_value.length <=1 || emplastname_value.length <=1
+      || (empmarks_value > 100 || empmarks_value <= 0))
   {
+     console.log("Check is returning false");
      return false;
   } else {
      return true;

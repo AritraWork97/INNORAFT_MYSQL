@@ -1,4 +1,5 @@
 var empname = document.getElementById("empname");
+var empcode = document.getElementById("empcode");
 var domain = document.getElementById("empdomain");
 var form = document.getElementById("form-element");
 
@@ -18,8 +19,9 @@ empname.onkeypress = function() {
  form.onsubmit = function() {
   var empname_value = document.getElementById("empname").value;
   var domain_value = document.getElementById("empdomain").value;
+  var empcode_value = document.getElementById("empcode").value;
 
-  if(empname_value.length <=1 || domain_value.length <=1)
+  if(empname_value.length <=1 || domain_value.length <=1 || empcode_value.length <=1) 
   {
      return false;
   } else {

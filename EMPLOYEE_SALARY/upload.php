@@ -5,33 +5,38 @@
 
 
 
-    $employee_code_name = $employee_code_domain = "";
+    $emp_code = $emp_sal = $emp_id="";
 
-    $employee_code_name_error = $employee_code_domain_error = "";
+    $emp_sal_error = $emp_code_error = $emp_id_error="";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty($_POST["empname"])) {
-            $employee_code_name_error = "Your Employee name is required";
+        if (empty($_POST["empid"])) {
+            $emp_id_error = "Your Employee ID is required";
          }else {
-            $employee_code_name = test_input($_POST["empname"]);
+            $emp_id = test_input($_POST["empid"]);
          }
-         if (empty($_POST["empdomain"])) {
-            $employee_code_domain_error = "Your Domain is required";
+         if (empty($_POST["empcode"])) {
+            $emp_code_error = "Your Employee Code is required";
          }else {
-            $employee_code_domain = test_input($_POST["empdomain"]);
+            $emp_code = test_input($_POST["empcode"]);
+         }
+         if (empty($_POST["empsal"])) {
+            $emp_sal_error = "Your Salary is required";
+         }else {
+            $emp_sal = test_input($_POST["empsal"]);
          }
     }
-    if($employee_code_domain_error != null || $employee_code_name_error != null)
+    if($emp_code_error != null || $emp_sal_error != null || $emp_id_error != null)
     {
         echo "Error in given data";
     } else {
-        $sql_insert_data = "INSERT INTO employee_code_table VALUES('jkasfghfhgdsdd', '$employee_code_name', '$employee_code_domain')";
+        $sql_insert_data = "INSERT INTO employee_salary_table VALUES('$emp_id', '$emp_code', '$emp_sal')";
         if($conn->query($sql_insert_data) == TRUE)
         {
             echo '<script language="javascript">';
             echo 'alert("Record Successfully created")';
             echo '</script>';
-            header( "Refresh:0; url=./show_table.php");
+            header( "Refresh:0; url=../show_table.php");
         } else {
             echo '<script language="javascript">';
             echo 'alert("Record not created")';

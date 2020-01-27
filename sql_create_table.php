@@ -2,7 +2,7 @@
 
 include 'dbconfig.php';
 
-$sql_employee_code_table = "CREATE TABLE employee_code_table (employee_code VARCHAR(10), employee_code_name VARCHAR(10) NOT NULL, 
+$sql_employee_code_table = "CREATE TABLE employee_code_table (employee_code VARCHAR(10) NOT NULL, employee_code_name VARCHAR(10) NOT NULL, 
                                                               employee_domain VARCHAR(10) NOT NULL, PRIMARY KEY(employee_code));";
 
 if ($conn->query($sql_employee_code_table) === TRUE) {
@@ -23,7 +23,7 @@ if ($conn->query($sql_employee_details_table) === TRUE) {
 }
 
 $sql_employee_salary_table = "CREATE TABLE employee_salary_table (employee_id VARCHAR(10) NOT NULL, employee_code VARCHAR(10) NOT NULL, 
-                            employee_salary INT(10) NOT NULL, FOREIGN KEY (employee_id) REFERENCES employee_details_table(employee_id), 
+                            employee_salary VARCHAR(10) NOT NULL, FOREIGN KEY (employee_id) REFERENCES employee_details_table(employee_id), 
                             FOREIGN KEY (employee_code) REFERENCES employee_code_table(employee_code));";
 
 if ($conn->query($sql_employee_salary_table) === TRUE) {

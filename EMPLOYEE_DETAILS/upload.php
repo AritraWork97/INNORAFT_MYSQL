@@ -3,6 +3,8 @@
     include_once '../dbconfig.php';
     require '../validation.php';
 
+
+
     $empname_value = $empid_value = $emplastname_value = $empmarks_value="";
 
     $empname_value_error = $empid_value_error = $emplastname_value_error= $empmarks_value_error="";
@@ -26,7 +28,7 @@
          if (empty($_POST["graduation_percentile"])) {
             $empmarks_value_error = "Your Graduation Score is required";
          }else {
-            $empmarks_value = test_input($_POST["emplastname"]);
+            $empmarks_value = test_input($_POST["graduation_percentile"]);
          }
     }
     if($empid_value_error != null || $empname_value_error != null || $emplastname_value_error != null || $empmarks_value_error != null)
@@ -41,7 +43,10 @@
             echo '</script>';
             header( "Refresh:0; url=../show_table.php");
         } else {
-            echo "$conn->error";
+            echo '<script language="javascript">';
+            echo 'alert("Record not created")';
+            echo '</script>';
+            header( "Refresh:0; url=./index.html");
         }
     }
 

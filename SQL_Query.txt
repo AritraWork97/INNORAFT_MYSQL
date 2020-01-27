@@ -1,0 +1,27 @@
+1)
+
+SELECT employee_salary_table.employee_id, employee_details_table.employee_first_name ,employee_salary_table.employee_salary FROM employee_salary_table, employee_details_table WHERE employee_salary_table.employee_id=employee_details_table.employee_id AND employee_salary_table.employee_salary > 50000
+
+2)
+
+SELECT employee_details_table.employee_last_name FROM `employee_details_table` WHERE employee_details_table.graduation_percentile > 70
+
+3)
+
+SELECT employee_code_table.employee_code_name FROM employee_code_table WHERE employee_code_table.employee_code IN (SELECT employee_salary_table.employee_code FROM employee_salary_table WHERE employee_salary_table.employee_id IN (SELECT employee_details_table.employee_id FROM `employee_details_table` WHERE employee_details_table.graduation_percentile < 70))
+
+4)
+
+SELECT CONCAT(employee_first_name,' ',employee_last_name) AS Fullname FROM employee_details_table WHERE employee_details_table.employee_id IN (SELECT employee_salary_table.employee_id FROM employee_salary_table WHERE employee_salary_table.employee_code IN (SELECT employee_code_table.employee_code FROM employee_code_table WHERE employee_code_table.employee_domain != 'JAVA'))
+
+5)
+
+select SUM(es.employee_salary) as salary_sum, ec.employee_domain from employee_salary_table es inner join employee_code_table ec on es.employee_code = ec.employee_code group by ec.employee_domain;
+
+6)
+
+select SUM(es.employee_salary) as salary_sum, ec.employee_domain from employee_salary_table es inner join employee_code_table ec on es.employee_code = ec.employee_code WHERE es.employee_salary > 30000 group by ec.employee_domain;
+
+7)
+
+SELECT employee_id FROM `employee_salary_table` WHERE employee_code = null
