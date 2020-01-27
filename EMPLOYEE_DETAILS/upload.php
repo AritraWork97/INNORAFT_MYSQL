@@ -14,21 +14,25 @@
             $empname_value_error = "Your First name is required";
          }else {
             $empname_value = test_input($_POST["empname"]);
+            $empname_value = $conn->real_escape_string($empname_value);
          }
          if (empty($_POST["empid"])) {
             $empid_value_error = "Your Employee ID is required";
          }else {
             $empid_value = test_input($_POST["empid"]);
+            $empid_value = $conn->real_escape_string($empid_value);
          }
          if (empty($_POST["emplastname"])) {
             $emplastname_value_error = "Your Last name is required";
          }else {
             $emplastname_value = test_input($_POST["emplastname"]);
+            $emplastname_value = $conn->real_escape_string($emplastname_value);
          }
          if (empty($_POST["graduation_percentile"])) {
             $empmarks_value_error = "Your Graduation Score is required";
          }else {
             $empmarks_value = test_input($_POST["graduation_percentile"]);
+            $empmarks_value = $conn->real_escape_string($empmarks_value);
          }
     }
     if($empid_value_error != null || $empname_value_error != null || $emplastname_value_error != null || $empmarks_value_error != null)
