@@ -24,4 +24,4 @@ select SUM(es.employee_salary) as salary_sum, ec.employee_domain from employee_s
 
 7)
 
-SELECT employee_id FROM `employee_salary_table` WHERE employee_code = null
+SELECT employee_id FROM `employee_salary_table` WHERE employee_code = null;
