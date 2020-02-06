@@ -28,7 +28,7 @@
                     echo "</tr>";
                     while($row = mysqli_fetch_array($result)){
                             echo "<tr>";
-                                echo "<td>" . $row['employee_id'] . "</td>";
+                                echo "<td>" . $row['empid'] . "</td>";
                                 echo "<td>" . $row['employee_first_name'] . "</td>";
                                 echo "<td>" . $row['employee_last_name'] . "</td>";
                                 echo "<td>" . $row['graduation_percentile'] . "</td>";
@@ -83,7 +83,7 @@
                     echo "</tr>";
                     while($row = mysqli_fetch_array($result)){
                             echo "<tr>";
-                                echo "<td>" . $row['employee_id'] . "</td>";
+                                echo "<td>" . $row['empid'] . "</td>";
                                 echo "<td>" . $row['employee_code'] . "</td>";
                                 echo "<td>" . $row['employee_salary'] . "</td>";
                             echo "</tr>";
