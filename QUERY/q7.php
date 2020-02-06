@@ -7,7 +7,7 @@
 
 include_once '../dbconfig.php';
 
-$sql_empdetails = "SELECT employee_id FROM `employee_salary_table` WHERE employee_code = null;";
+$sql_empdetails = "SELECT empid FROM `employee_salary_table` WHERE employee_code = null;";
 
 if($result = $conn->query($sql_empdetails)){
         if(mysqli_num_rows($result) > 0){

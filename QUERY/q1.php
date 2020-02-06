@@ -7,8 +7,8 @@
 
 include_once '../dbconfig.php';
 
-$sql_empdetails = "SELECT employee_salary_table.employee_id, employee_details_table.employee_first_name ,employee_salary_table.employee_salary 
-                            FROM employee_salary_table, employee_details_table WHERE employee_salary_table.employee_id=employee_details_table.employee_id 
+$sql_empdetails = "SELECT employee_salary_table.empid, employee_details_table.employee_first_name ,employee_salary_table.employee_salary 
+                            FROM employee_salary_table, employee_details_table WHERE employee_salary_table.empid=employee_details_table.empid 
                             AND employee_salary_table.employee_salary > 50000";
 
 if($result = $conn->query($sql_empdetails)){
