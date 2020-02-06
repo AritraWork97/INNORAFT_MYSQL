@@ -10,7 +10,7 @@ function test_input($data) {
     return $data;
  }
         
- function get_new_empid($data){
+ function get_new_empid(){
     global $conn;
     $query = "SELECT empid from employee_details_table order by empid desc LIMIT 1";
     $res = $conn->query($query);

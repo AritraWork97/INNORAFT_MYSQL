@@ -3,9 +3,9 @@
     include_once './dbconfig.php';
     require './validation.php';
 
-    $empname  = $emplastname = $empmarks= $empdomain="";
+    $empname  = $emplastname = $empmarks= $empdomain= $empsal="";
 
-    $empname_error  = $emplastname_error= $empmarks_error= $empdomain_error="";
+    $empname_error  = $emplastname_error= $empmarks_error= $empdomain_error= $empsal_error="";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["empname"])) {
@@ -32,6 +32,12 @@
             $empdomain = test_input($_POST["empdomain"]);
             $empdomain = $conn->real_escape_string($empdomain);
          }
+         if (empty($_POST["empsal"])) {
+            $empsal_error = "Your Salary is required";
+         }else {
+            $empsal = test_input($_POST["empsal"]);
+            $empsal = $conn->real_escape_string($empsal);
+         }
     }
     if($empname_error != null || $emplastname_error != null || $empmarks_error != null)
     {
@@ -57,7 +63,7 @@
         }
         
         
-        $emp_id = get_new_empid("12");
+        $emp_id = get_new_empid();
         
         $sql_inser_details_table = "insert into employee_details_table values('$emp_id','$empname','$emplastname','$empmarks')";
         if($conn->query($sql_inser_details_table) ==true){
@@ -68,6 +74,16 @@
            echo "new record added sucessfully into details table";
            echo "<br>";
         }
+
+        $sql_insert_sal_table = "insert into employee_salary_table values('$emp_id', '$empsal', '$emp_code')";
+        if($conn->query($sql_insert_sal_table) ==true){
+         echo "new record added sucessfully into details table";
+         echo "<br>";
+     }
+     else{
+        echo "new record not added sucessfully into details table";
+        echo "<br>";
+     }
         
     }
 

@@ -22,8 +22,8 @@ if ($conn->query($sql_employee_details_table) === TRUE) {
     echo "Error: ". $conn->error;
 }
 
-/*$sql_employee_salary_table = "CREATE TABLE employee_salary_table (employee_id VARCHAR(10) NOT NULL, employee_code VARCHAR(10) NOT NULL, 
-                            employee_salary VARCHAR(10) NOT NULL, FOREIGN KEY (employee_id) REFERENCES employee_details_table(employee_id), 
+$sql_employee_salary_table = "CREATE TABLE employee_salary_table (empid VARCHAR(10) NOT NULL, employee_salary VARCHAR(10) NOT NULL, 
+                            employee_code VARCHAR(10) NOT NULL, FOREIGN KEY (empid) REFERENCES employee_details_table(empid), 
                             FOREIGN KEY (employee_code) REFERENCES employee_code_table(employee_code));";
 
 if ($conn->query($sql_employee_salary_table) === TRUE) {
@@ -31,7 +31,7 @@ if ($conn->query($sql_employee_salary_table) === TRUE) {
     echo "New table employee_salary_table created successfully";
 } else {
     echo "Error: ". $conn->error;
-}*/
+}
 
 $conn->close();
 
